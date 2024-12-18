@@ -28,6 +28,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.Formatter;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
 import android.view.View;
@@ -438,6 +439,7 @@ public class ComposeMessageView extends LinearLayout
      */
     @Override // From DraftMessageDataListener
     public void onDraftChanged(final DraftMessageData data, final int changeFlags) {
+        Log.e("MICHAEL", "onDraftChanged");
         // As this is called asynchronously when message read check bound before updating text
         mBinding.ensureBound(data);
 
@@ -469,6 +471,7 @@ public class ComposeMessageView extends LinearLayout
 
         if ((changeFlags & DraftMessageData.ATTACHMENTS_CHANGED) ==
                 DraftMessageData.ATTACHMENTS_CHANGED) {
+            Log.e("MICHAEL", "onAttachmentsChanged");
             mAttachmentPreview.onAttachmentsChanged(data);
             hasAttachmentsChanged = true;
         }
@@ -509,6 +512,7 @@ public class ComposeMessageView extends LinearLayout
 
     @Override
     public void onPendingAttachmentAdded(final PendingAttachmentData pendingItem) {
+        Log.e("MICHAEL", "OnPendingAttachmentAdded");
         mBinding.getData().addPendingAttachment(pendingItem, mBinding);
         resumeComposeMessage();
     }

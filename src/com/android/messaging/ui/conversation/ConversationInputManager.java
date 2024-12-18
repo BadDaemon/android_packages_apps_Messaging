@@ -17,6 +17,7 @@ package com.android.messaging.ui.conversation;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 
 import androidx.appcompat.app.ActionBar;
@@ -382,6 +383,7 @@ public class ConversationInputManager implements ConversationInput.ConversationI
 
                     @Override
                     public void onPendingItemAdded(final PendingAttachmentData pendingItem) {
+                        Log.e("MICHAEL", "onPendingItemAdded");
                         mSink.onPendingAttachmentAdded(pendingItem);
                     }
 

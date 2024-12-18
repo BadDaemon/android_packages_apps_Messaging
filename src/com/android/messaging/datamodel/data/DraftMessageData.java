@@ -18,6 +18,7 @@ package com.android.messaging.datamodel.data;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.messaging.datamodel.MessageTextStats;
 import com.android.messaging.datamodel.action.ReadDraftDataAction;
@@ -407,6 +408,7 @@ public class DraftMessageData extends BindableData implements ReadDraftDataActio
         if (reachedLimit) {
             dispatchAttachmentLimitReached();
         }
+        Log.e("MICHAEL", "addPendingAttachment");
         dispatchChanged(ATTACHMENTS_CHANGED);
     }
 

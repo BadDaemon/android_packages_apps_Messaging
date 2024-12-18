@@ -21,6 +21,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,7 @@ public class AttachmentPreviewFactory {
             final MessagePartData attachmentData, final ViewGroup parent,
             final int viewType, final boolean startImageRequest,
             @Nullable final OnAttachmentClickListener clickListener) {
+        Log.e("MICHAEL", "createAttachmentPreview");
         final String contentType = attachmentData.getContentType();
         View attachmentView = null;
         if (attachmentData instanceof PendingAttachmentData) {

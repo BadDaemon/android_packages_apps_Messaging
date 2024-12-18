@@ -23,6 +23,7 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -132,6 +133,7 @@ public class AttachmentPreview extends ScrollView implements OnAttachmentClickLi
 
     // returns true if we have attachments
     public void onAttachmentsChanged(final DraftMessageData draftMessageData) {
+        Log.e("MICHAEL", "onAttachmentsChanged");
         final boolean isFirstUpdate = mPendingFirstUpdate;
         final List<MessagePartData> attachments = draftMessageData.getReadOnlyAttachments();
         final List<PendingAttachmentData> pendingAttachments =
@@ -150,6 +152,7 @@ public class AttachmentPreview extends ScrollView implements OnAttachmentClickLi
                 mHideRunnable = null;
                 // Only start the hiding if there are still no attachments
                 if (attachments.size() + pendingAttachments.size() == 0) {
+                    Log.e("MICHAEL", "no size");
                     hideAttachmentPreview();
                 }
             };
@@ -162,6 +165,7 @@ public class AttachmentPreview extends ScrollView implements OnAttachmentClickLi
                 // Run immediately when clearing attachments
                 mHideRunnable.run();
             }
+            Log.e("MICHAEL", "onAttachmentsChanged return");
             return;
         }
 
