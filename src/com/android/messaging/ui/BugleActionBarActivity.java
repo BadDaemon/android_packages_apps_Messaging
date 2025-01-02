@@ -64,6 +64,9 @@ public class BugleActionBarActivity extends AppCompatActivity implements ImeUtil
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setSupportActionBar(findViewById(R.id.toolbar));
+
         if (UiUtils.redirectToPermissionCheckIfNeeded(this)) {
             return;
         }
