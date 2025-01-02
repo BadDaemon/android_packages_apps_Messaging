@@ -28,6 +28,9 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.android.messaging.R;
 import com.android.messaging.util.BugleActivityUtil;
@@ -261,6 +264,21 @@ public class BugleActionBarActivity extends AppCompatActivity implements ImeUtil
 
     protected void updateActionBar(final ActionBar actionBar) {
         actionBar.setHomeAsUpIndicator(null);
+    }
+
+    public void setupInsets(View rootView) {
+        // Handle window insets for padding adjustments
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (view, insets) -> {
+            Insets systemInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            view.setPadding(
+                    view.getPaddingLeft(),
+                    systemInsets.top,
+                    view.getPaddingRight(),
+                    systemInsets.bottom
+            );
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 
     /**

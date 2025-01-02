@@ -40,6 +40,8 @@ public class ConversationListActivity extends AbstractConversationListActivity i
         super.onCreate(savedInstanceState);
         getSupportFragmentManager().addFragmentOnAttachListener(this);
         setContentView(R.layout.conversation_list_activity);
+        setSupportActionBar(findViewById(R.id.toolbar));
+        setupInsets(findViewById(android.R.id.content));
         Trace.endSection();
         invalidateActionBar();
     }
